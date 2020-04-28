@@ -1,1 +1,1 @@
-export const theMovieDbUrl = 'https://www.themoviedb.org'
+export const posterBaseUrl = 'http://image.tmdb.org/t/p/w185//'

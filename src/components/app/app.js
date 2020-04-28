@@ -7,17 +7,21 @@ import { theMovieDbUrl } from '../../constants'
 export const App = ({ genres, setGenres }) => {
 	
 	useEffect(() => {
-		fetch(`https://www.themoviedb.org/3/genre/movie/list?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US`)
-		// fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US`)
+		fetch('http://localhost:3000/genres')
 			.then(response => response.json())
-			.then(data => setGenres(data.genres))
+			.then(genres => setGenres(genres))
 			.catch(err => console.log(err))
 	}, [])
-	
+	console.log(genres)
 	return (
 		<>
 			<H1>NETFLEX</H1>
-			{genres.map(genre => <Genre key={genre.id} title={genre.name} />)}
+			{genres.map(genre => 
+				<Genre 
+					key={genre.id} 
+					title={genre.name} 
+					movies={genre.movies}
+				/>)}
 		</>
 	)
 }

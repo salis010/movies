@@ -3,24 +3,35 @@
 # --- IN PROGRESS ---
 
 // NEXT:
-// fetching from the frontend was not working, so I moved to fetching from the backend
-// The next day however, fetching from the frontend worked fine!
-// If fetching from the frontend continues to work ok, remember to uninstall axios and remove the logic from server.js (save it somewhere!)
-// Next: setup redux on the branch 'setup-redux'. The idea is to:
-// - fetch the genres
-// - save them to the store
-// Following this, create another branch, to get a number of movies per genre
+// There is a temproary limit on getMoviesPerGenre to limit api calls:
+    return genres[0] // temprorary limit: remove [0]
+
+// trim the data in getMoviesPerGenre()
+
 // Next, another branch to implement an image gallery (use the one used for surpluz.io)
 
 - redux
 - homepage with various genres
 - image gallery
 - option to get more details about a movie
-- serach option
+- search option
 - filter option
 - mobile responsive
 - testing
 - prop types
+
+
+## API Issues
+
+Fetching from the frontend was not always working:
+
+```
+No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+So I shifted to calling the api from the node server and make it available to frontend via endpoints.
+
+
 
 ## Notes
 
