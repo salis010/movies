@@ -7,6 +7,7 @@ import { App } from './components/app/index'
 import { store } from './store/index'
 import './styles/main.css'
 
+
 const mountNode = document.getElementById('mountNode')
 
 ReactDOM.render(

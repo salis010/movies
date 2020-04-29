@@ -2,23 +2,19 @@
 
 # --- IN PROGRESS ---
 
-// NEXT:
+// WARNING:
 // There is a temproary limit on getMoviesPerGenre to limit api calls:
-    return genres[0] // temprorary limit: remove [0]
+    return [genres[0]] // temprorary limit: remove [...[0]]
 
-// trim the data in getMoviesPerGenre()
 
-// Next, another branch to implement an image gallery (use the one used for surpluz.io)
-
-- redux
-- homepage with various genres
-- image gallery
+// NEXT:
 - option to get more details about a movie
 - search option
 - filter option
 - mobile responsive
 - testing
 - prop types
+- trim the data in getMoviesPerGenre()
 
 
 ## API Issues
