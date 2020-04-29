@@ -8,7 +8,6 @@
 
 
 // NEXT:
-- option to get more details about a movie
 - search option
 - filter option
 - mobile responsive
@@ -35,7 +34,3 @@ Fetching data directly from the Frontend does not work due to a CORS issue:
 ```
 Access to fetch at 'https://www.themoviedb.org/documentation/api/genre/movie/list' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 ```
-
-## How I did it
-
-- Experiment with  The Movies Database

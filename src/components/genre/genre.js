@@ -26,7 +26,7 @@ const Img = styled.img`
     margin-right: 100px;
 `
 
-export const Genre = ({ title, movies }) => {
+export const Genre = ({ title, movies, setCurrentMovie }) => {
 
     const [ screenWidth, setScreenWidth ] = useState(window.innerWidth)
     const [ imageWidth, setImageWidth ] = useState(screenWidth < breakpoint ? 100 : 185)
@@ -55,7 +55,7 @@ export const Genre = ({ title, movies }) => {
         dots: false,
     }
 
-    const handleClick = event => console.log(event.target.getAttribute('id'))
+    const handleClick = event => setCurrentMovie(parseInt(event.target.getAttribute('id')))
 
     return (
         <Wrapper>
@@ -64,8 +64,7 @@ export const Genre = ({ title, movies }) => {
                 {movies.results.map(movie =>
                 <ImageWrapper key={movie.id} >
                     <Img 
-                    onClick={handleClick}
-                    
+                        onClick={handleClick}
                         id={movie.id}
                         width={imageWidth}
                         src={`${posterBaseUrl}${movie.poster_path}`} 

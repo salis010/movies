@@ -1,1 +1,3 @@
 export const SET_GENRES = 'SET_GENRES'
+export const SHOW_MOVIE_DETAIL = 'SHOW_MOVIE_DETAIL'
+export const SET_CURRENT_MOVIE = 'SET_CURRENT_MOVIE'
