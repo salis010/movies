@@ -8,7 +8,6 @@ const P = styled.p`
     font-weight: 800;
 `
 
-
 export const SearchResults = ({ movies }) => 
     <>
         {movies.length > 0 ?

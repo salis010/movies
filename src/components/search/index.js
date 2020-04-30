@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Search as Component } from './search'
-import { setCurrentMovie, setSearchResults } from '../../store/actions'
+import { setSearching, goHome, setSearchResults } from '../../store/actions'
 
 
 const mapStateToProps = state => ({
@@ -9,8 +9,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    setCurrentMovie: id => dispatch(setCurrentMovie(id)),
+    setSearching: isSearching => dispatch(setSearching(isSearching)),
     setSearchResults: searchResults => dispatch(setSearchResults(searchResults)),
+    goHome: () => dispatch(goHome()),
 })
 
 export const Search = connect(mapStateToProps, mapDispatchToProps)(Component)
