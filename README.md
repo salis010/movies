@@ -10,10 +10,10 @@
 
 // NEXT:
 - trim the data in getMoviesPerGenre()
-- clicking on a movie in Search or Filter, fetches data and takes user to MovieDetail
 - testing
 - prop types
 - bug: when scrolling horizontally, user ends entering movie details
+- remove what is not required from server.js
 
 
 ## API Issues

@@ -16,12 +16,17 @@ app.get('/genres', (req, res) => {
 	res.json(genres)
 })
 
-app.get('/search/:movie', (req, res) => {
-	
+app.get('/search/:movie', (req, res) => {	
 	axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US&query=${req.params.movie}&page=1&include_adult=false`)
 		.then(response => res.json(response.data))
 		.catch(err => console.log(err))
 })
+
+// app.get('/details/:movie', (req, res) => {	
+// 	axios.get(`https://api.themoviedb.org/3/movie/${req.params.movie}?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US`)
+// 		.then(response => res.json(response.data))
+// 		.catch(err => console.log(err))
+// })
 
 const optionsV4 = {
 	headers: {
@@ -38,7 +43,7 @@ const optionsV3 = {
 }
 
 
-// works: gets list of genres
+// gets list of genres
 axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US')
 	.then(response => {
 		genres = response.data.genres

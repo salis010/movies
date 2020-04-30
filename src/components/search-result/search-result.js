@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { posterBaseUrl } from '../constants'
+import { posterBaseUrl } from '../../constants'
 
 
 const MovieWrapper = styled.div`
@@ -16,6 +16,7 @@ const InfoWrapper = styled.div`
 
 const Img = styled.img`
     width: 100px;
+    cursor: pointer;
 
     @media only screen and (min-width: ${props => props.theme.breakpoint}) {
         width: 185px;
@@ -33,12 +34,18 @@ const Title = styled.p`
     }
 `
 
-export const SearchResult = ({ movie }) => {
+export const SearchResult = ({ movie, setCurrentMovie }) => {
     
+    const handleClick = () => setCurrentMovie(movie.id)
+
     if(movie.poster_path != null) {
         return (
             <MovieWrapper>
-                <Img src={`${posterBaseUrl}${movie.poster_path}`} alt={movie.title} />
+                <Img 
+                    onClick={handleClick}
+                    src={`${posterBaseUrl}${movie.poster_path}`} 
+                    alt={movie.title} 
+                />
                 <InfoWrapper>
                     <Title>{movie.title}</Title>
                     <p>Year:{movie.release_date.slice(0, 4)}</p>
