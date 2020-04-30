@@ -1,6 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const getMoviesPerGenre = require('./backend/get-movies-per-genre')
+const trimMoviesData = require('./backend/trim-movies-data')
 
 const app = express()
 const port = 3000
@@ -49,7 +50,8 @@ axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=e21522307a493e2
 		genres = response.data.genres
 		console.log(genres)		
 	})
-	.then(() => genres = getMoviesPerGenre(genres))
+	.then(() => getMoviesPerGenre(genres))
+	.then(data => genres = trimMoviesData(data))
 	.catch(err => console.log(err))
 
 
