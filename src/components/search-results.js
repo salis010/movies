@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SearchResult } from './search-result'
+import { SearchResult } from './search-result/index'
 
 
 const P = styled.p`

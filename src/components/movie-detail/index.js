@@ -4,12 +4,9 @@ import { getMovieDetails } from '../../utils/get-movie-details'
 import { showMovieDetail } from '../../store/actions'
 
 
-const mapStateToProps = state => {
-    console.log(state)
-   return  ({
-    movie: getMovieDetails(state.genres, state.currentMovieId)
+const mapStateToProps = state => ({
+    movie: getMovieDetails(state.genres, state.searchResults, state.currentMovieId)
 })
-}
 
 const mapDispatchToProps = dispatch => ({
     showMovieDetail: () => dispatch(showMovieDetail())

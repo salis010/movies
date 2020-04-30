@@ -1,4 +1,4 @@
-export const getMovieDetails = (genres, id) => {
+export const getMovieDetails = (genres, searchResults, id) => {
 
     const noMovieFound = { error: 'No matching movie' }
 
@@ -7,6 +7,12 @@ export const getMovieDetails = (genres, id) => {
             if(genres[i].movies.results[j].id === id) {
                 return genres[i].movies.results[j]
             }
+        }
+    }
+console.log(searchResults)
+    for( let i = 0; i < searchResults.length; i++) {
+        if(searchResults[i].id === id) {
+            return searchResults[i]
         }
     }
 
