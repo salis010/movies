@@ -9,7 +9,6 @@
 
 
 // NEXT:
-- testing
 - prop types
 - bug: when scrolling horizontally, user ends entering movie details
 - remove what is not required from server.js

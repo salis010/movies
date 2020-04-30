@@ -9,7 +9,7 @@ export const getMovieDetails = (genres, searchResults, id) => {
             }
         }
     }
-console.log(searchResults)
+
     for( let i = 0; i < searchResults.length; i++) {
         if(searchResults[i].id === id) {
             return searchResults[i]
