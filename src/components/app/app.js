@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { serverUrl } from '../../constants'
+import { GlobalWrapper } from '../common'
 import { Title } from '../title/index'
 import { ToolBar } from '../tool-bar'
 import { Genre } from '../genre/index'
@@ -17,9 +18,9 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, isSea
 	}, [])
 
 	return (
-		<>
+		<GlobalWrapper>
 			<Title title='NETFLEX' />
-			<ToolBar />
+			{ !isShowMovieDetail && <ToolBar /> }
 			
 			{ !isShowMovieDetail && !isSearching && 
 			genres.map(genre => 
@@ -31,6 +32,6 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, isSea
 			)}
 			{ !isShowMovieDetail && isSearching && <SearchResults movies={searchResults} /> }
 			{ isShowMovieDetail && <MovieDetail /> }
-		</>
+		</GlobalWrapper>
 	)
 }
