@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
     genres: state.genres,
     isShowMovieDetail: state.isShowMovieDetail,
     searchResults: state.searchResults,
+    filter: state.filter,
 })
 
 const mapDispatchToProps = dispatch => ({
