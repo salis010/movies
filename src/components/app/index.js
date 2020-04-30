@@ -6,6 +6,7 @@ import { setGenres } from '../../store/actions'
 const mapStateToProps = state => ({
     genres: state.genres,
     isShowMovieDetail: state.isShowMovieDetail,
+    searchResults: state.searchResults,
 })
 
 const mapDispatchToProps = dispatch => ({

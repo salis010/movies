@@ -8,12 +8,13 @@
 
 
 // NEXT:
-- search option
+- include navigation bar with Home, Filter, and Search options
 - filter option
 - mobile responsive
 - testing
 - prop types
 - trim the data in getMoviesPerGenre()
+- bug: when scrolling, user ends entering movie details
 
 
 ## API Issues
