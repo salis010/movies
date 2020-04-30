@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { serverUrl } from '../../constants'
-import { Filter } from '../filter/index'
-import { Search } from '../search/index'
-import { H1 } from '../common'
+import { Title } from '../title/index'
+import { ToolBar } from '../tool-bar'
 import { Genre } from '../genre/index'
 import { MovieDetail } from '../movie-detail/index'
 import { SearchResults } from '../search-results'
 
 
-export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, filter }) => {
+export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, isSearching }) => {
 	
 	useEffect(() => {
 		fetch(`${serverUrl}/genres`)
@@ -16,27 +15,22 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, filte
 			.then(genres => setGenres(genres))
 			.catch(err => console.log(err))
 	}, [])
-// console.log(searchResults)
-	// console.log(genres) // remove
-	
+
 	return (
 		<>
-			<H1>NETFLEX</H1>
-			<Filter />
-			<Search />
-			<SearchResults movies={searchResults} />
+			<Title title='NETFLEX' />
+			<ToolBar />
 			
-			{!isShowMovieDetail && 
-				genres.map(genre => 
+			{ !isShowMovieDetail && !isSearching && 
+			genres.map(genre => 
 				<Genre 
 					key={genre.id} 
 					title={genre.name} 
 					movies={genre.movies}
 				/>
 			)}
-			{isShowMovieDetail &&
-				<MovieDetail />
-			}
+			{ !isShowMovieDetail && isSearching && <SearchResults movies={searchResults} /> }
+			{ isShowMovieDetail && <MovieDetail /> }
 		</>
 	)
 }

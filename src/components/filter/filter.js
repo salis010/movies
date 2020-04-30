@@ -5,8 +5,17 @@ import styled from 'styled-components'
 
 const Select = styled.select`
     font-size: 1rem;
+    height: 1.8rem;
     color: white;
     background-color: black;
+    border: 1px solid white;
+    border-radius: 0.2rem;
+    order: 1;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+        order: 0;
+        margin: 0;
+      }
 `
 
 export const Filter = ({ options, setFilter }) => {

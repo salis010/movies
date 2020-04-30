@@ -4,15 +4,22 @@ import styled from 'styled-components'
 import { serverUrl } from '../../constants'
 import magnifyingGlass from '../../images/magnifying-glass.png'
 import close from '../../images/close.png'
+import { goHome } from '../../store/actions'
 
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 3.8rem;
+  height: 1.8rem;
+  margin-bottom: 1rem;
   padding-right: 1rem;
-  background-color: ${props => props.theme.colors.header};
+  order: 0;
+
+  @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+    order: 1;
+    margin: 0;
+  }
 `
 
 const InputWrapper = styled.div`
@@ -20,7 +27,7 @@ const InputWrapper = styled.div`
   align-items: center;
   background-color: black;
   border: 1px solid white;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
 `
 
 const Input = styled.input`
@@ -32,7 +39,7 @@ const Input = styled.input`
   width: 10rem;
   max-width: 60%;
   height: 2.6rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-indent: 1rem;
   color: white;
   background-color: black;
@@ -49,7 +56,7 @@ const ImageWrapper = styled.div`
   cursor: pointer;
 `
 
-export const Search = ({ searchMovie, setSearchResults }) => {
+export const Search = ({ setSearching, setSearchResults, goHome }) => {
 
   const [isExpanded, setIsExpanded] = useState(false)
   const [searchText, setSearchText] = useState('')
@@ -60,6 +67,7 @@ export const Search = ({ searchMovie, setSearchResults }) => {
   const onCloseSearchBox = () => {
     setIsExpanded(false)
     setSearchText('')
+    goHome()
   }
 
   const handleOnChange = event =>
@@ -67,10 +75,13 @@ export const Search = ({ searchMovie, setSearchResults }) => {
 
   const initiateSearch = () => {
     if(searchText.length > 0) {
-        fetch(`${serverUrl}/search/${searchText}`)
-            .then(response => response.json())
-            .then(data => setSearchResults(data.results))
-            .catch(err => console.log(err))
+      
+      setSearching(true)
+
+      fetch(`${serverUrl}/search/${searchText}`)
+          .then(response => response.json())
+          .then(data => setSearchResults(data.results))
+          .catch(err => console.log(err))
     }
   }
 
