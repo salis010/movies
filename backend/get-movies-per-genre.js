@@ -8,7 +8,7 @@ const getMoviesPerGenre = genres => {
             .catch(err => console.log(genre.name, err))
     })
     
-    return [genres[0], genres[1]] // temprorary limit
+    return genres
 }
 
 module.exports = getMoviesPerGenre

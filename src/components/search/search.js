@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { serverUrl } from '../../constants'
 import magnifyingGlass from '../../images/magnifying-glass.png'
 import close from '../../images/close.png'
-import { goHome } from '../../store/actions'
 
 
 const Wrapper = styled.div`
@@ -112,6 +111,8 @@ export const Search = ({ setSearching, setSearchResults, goHome }) => {
   )
 }
 
-// Search.propTypes = {
-//   onSearch: PropTypes.func.isRequired,
-// }
+Search.propTypes = {
+  goHome: PropTypes.func.isRequired,
+  setSearching: PropTypes.func.isRequired,
+  setSearchResults: PropTypes.func.isRequired,
+}
