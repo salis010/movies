@@ -19,6 +19,14 @@ const Wrapper = styled.div`
     }
 `
 
+const SliderWrapper = styled.div`
+    padding: 0;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+        padding: 0 30px;
+    }
+`
+
 const ImageWrapper = styled.div`
     cursor: pointer;
 `
@@ -36,7 +44,7 @@ export const Genre = ({ title, movies, setCurrentMovie }) => {
     const updateScreenWidth = () => {
         const width = window.innerWidth
         
-        setScreenWidth(width - 40)
+        setScreenWidth(width - 100)
         setImageWidth(width < breakpoint ? 100 : 185)
     }
 
@@ -49,12 +57,12 @@ export const Genre = ({ title, movies, setCurrentMovie }) => {
     const n = Math.floor(screenWidth / imageWidth)
 
     const sliderSettings = {
-        dots: true,
-        infinite: false,
+        dots: false,
         speed: 500,
         slidesToShow: n,
         slidesToScroll: n,
         dots: false,
+        draggable: false,
     }
 
     const handleClick = event => setCurrentMovie(parseInt(event.target.getAttribute('id')))
@@ -62,19 +70,21 @@ export const Genre = ({ title, movies, setCurrentMovie }) => {
     return (
         <Wrapper>
             <H2>{title}</H2>
-            <Slider {...sliderSettings}>
-                {movies.results.map(movie =>
-                <ImageWrapper key={movie.id} >
-                    <Img 
-                        onClick={handleClick}
-                        id={movie.id}
-                        width={imageWidth}
-                        src={`${posterBaseUrl}${movie.poster_path}`} 
-                        alt={movie.title}
-                    />
-                </ImageWrapper>
-                )}
-            </Slider>
+            <SliderWrapper>
+                <Slider {...sliderSettings} >
+                    {movies.results.map(movie =>
+                    <ImageWrapper key={movie.id} >
+                        <Img 
+                            onClick={handleClick}
+                            id={movie.id}
+                            width={imageWidth}
+                            src={`${posterBaseUrl}${movie.poster_path}`} 
+                            alt={movie.title}
+                        />
+                    </ImageWrapper>
+                    )}
+                </Slider>
+            </SliderWrapper>
         </Wrapper>
     )
 }

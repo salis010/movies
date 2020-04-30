@@ -45,4 +45,3 @@ So I shifted to calling the api from the Node backend server and make data avail
 ## Improvements
 
 - Not enough time to trim off unnescessary data received from the api. The function in '/backend/trim-movies-data' is supposed to do this.
-- Horizontal scrolling on desktop needs tweaking. Scrolling might end up taking the user to the movie details page.
