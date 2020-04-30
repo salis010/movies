@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { posterBaseUrl } from '../../constants'
 import { H2 } from '../common'
+
 
 const MovieDetailWrapper = styled.div`
     display: flex;
@@ -40,3 +42,7 @@ export const MovieDetail = ({ movie, showMovieDetail }) =>
         </Button>
     </MovieDetailWrapper>
     
+MovieDetail.propTypes = {
+    movie: PropTypes.object.isRequired,
+    showMovieDetail: PropTypes.func.isRequired,
+}

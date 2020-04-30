@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { serverUrl } from '../../constants'
 import { GlobalWrapper } from '../common'
 import { Title } from '../title/index'
@@ -34,4 +35,12 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, isSea
 			{ isShowMovieDetail && <MovieDetail /> }
 		</GlobalWrapper>
 	)
+}
+
+App.propTypes = {
+	genres: PropTypes.array.isRequired,
+	isShowMovieDetail: PropTypes.bool.isRequired,
+	isSearching: PropTypes.bool.isRequired,
+	searchResults: PropTypes.array.isRequired,
+	setGenres: PropTypes.func.isRequired,
 }

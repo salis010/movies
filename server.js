@@ -10,10 +10,10 @@ let genres
 app.use(express.static(__dirname + '/dist'))
 
 app.get('/genres', (req, res) => {
-	console.log('genres requested', genres.length)
 	res.json(genres)
 })
 
+// gets a movie's details
 app.get('/search/:movie', (req, res) => {	
 	axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e21522307a493e2a621bd5fd409fca23&language=en-US&query=${req.params.movie}&page=1&include_adult=false`)
 		.then(response => res.json(response.data))

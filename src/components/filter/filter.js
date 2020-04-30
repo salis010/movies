@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -30,4 +30,9 @@ export const Filter = ({ options, setFilter }) => {
             )}
         </Select>
     )
+}
+
+Filter.propTypes = {
+    options: PropTypes.array.isRequired,
+    setFilter: PropTypes.func.isRequired,
 }

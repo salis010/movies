@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { posterBaseUrl } from '../../constants'
 
@@ -55,4 +56,9 @@ export const SearchResult = ({ movie, setCurrentMovie }) => {
     } else {
         return null
     }
+}
+
+SearchResult.propTypes = {
+    movie: PropTypes.object.isRequired,
+    setCurrentMovie: PropTypes.func.isRequired,
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SearchResult } from './search-result/index'
 
@@ -19,3 +20,6 @@ export const SearchResults = ({ movies }) =>
         }
     </>
 
+SearchResults.propTypes = {
+    movies: PropTypes.array.isRequired,
+}

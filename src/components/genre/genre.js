@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { H2 } from '../common'
 import Slider from 'react-slick'
@@ -78,3 +79,8 @@ export const Genre = ({ title, movies, setCurrentMovie }) => {
     )
 }
     
+Genre.propTypes = {
+    movies: PropTypes.object.isRequired,
+    setCurrentMovie: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+}

@@ -2,16 +2,10 @@
 
 # --- IN PROGRESS ---
 
-// WARNING:
-// There is a temproary limit on getMoviesPerGenre to limit api calls:
-    return [genres[0]] // temprorary limit: remove [...[0]]
-
-
 
 // NEXT:
-- prop types
+- Finalize README file
 - bug: when scrolling horizontally, user ends entering movie details
-- remove what is not required from server.js
 
 
 ## API Issues
