@@ -13,7 +13,6 @@ const Wrapper = styled.div`
   align-items: center;
   height: 1.8rem;
   margin-bottom: 1rem;
-  padding-right: 1rem;
   order: 0;
 
   @media only screen and (min-width: ${props => props.theme.breakpoint}) {

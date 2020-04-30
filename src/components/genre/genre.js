@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 200px;
+    margin-bottom: 2rem;
     overflow: hidden;
 
     @media only screen and (min-width: ${props => props.theme.breakpoint}) {
@@ -34,7 +35,7 @@ export const Genre = ({ title, movies, setCurrentMovie }) => {
     const updateScreenWidth = () => {
         const width = window.innerWidth
         
-        setScreenWidth(width)
+        setScreenWidth(width - 40)
         setImageWidth(width < breakpoint ? 100 : 185)
     }
 

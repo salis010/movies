@@ -6,19 +6,11 @@
 // There is a temproary limit on getMoviesPerGenre to limit api calls:
     return [genres[0]] // temprorary limit: remove [...[0]]
 
-// Navigation Bar
-
-Filter and Search to be present all the time
-
-!searching  && !isShowMovieDetail && //show all genres
-searching && !isShowMovieDetail && //show searchResults
-isShowMovieDetail && //show movie detail
 
 
 // NEXT:
-- include navigation bar with Home, Filter, and Search options
-- mobile responsive
 - trim the data in getMoviesPerGenre()
+- clicking on a movie in Search or Filter, fetches data and takes user to MovieDetail
 - testing
 - prop types
 - bug: when scrolling horizontally, user ends entering movie details
