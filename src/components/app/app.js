@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { serverUrl } from '../../constants'
+import { Filter } from '../filter/index'
 import { Search } from '../search/index'
 import { H1 } from '../common'
 import { Genre } from '../genre/index'
@@ -7,7 +8,7 @@ import { MovieDetail } from '../movie-detail/index'
 import { SearchResults } from '../search-results'
 
 
-export const App = ({ genres, setGenres, isShowMovieDetail, searchResults }) => {
+export const App = ({ genres, setGenres, isShowMovieDetail, searchResults, filter }) => {
 	
 	useEffect(() => {
 		fetch(`${serverUrl}/genres`)
@@ -21,10 +22,12 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults }) => 
 	return (
 		<>
 			<H1>NETFLEX</H1>
+			<Filter />
 			<Search />
 			<SearchResults movies={searchResults} />
 			
-			{/* {!isShowMovieDetail && genres.map(genre => 
+			{!isShowMovieDetail && 
+				genres.map(genre => 
 				<Genre 
 					key={genre.id} 
 					title={genre.name} 
@@ -33,7 +36,7 @@ export const App = ({ genres, setGenres, isShowMovieDetail, searchResults }) => 
 			)}
 			{isShowMovieDetail &&
 				<MovieDetail />
-			} */}
+			}
 		</>
 	)
 }

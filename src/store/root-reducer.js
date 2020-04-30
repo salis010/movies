@@ -1,4 +1,11 @@
-import { SET_GENRES, SHOW_MOVIE_DETAIL, SET_CURRENT_MOVIE, SET_SEARCH_RESULTS } from './action-types'
+import { 
+    SET_GENRES, 
+    SHOW_MOVIE_DETAIL, 
+    SET_CURRENT_MOVIE, 
+    SET_SEARCH_RESULTS, 
+    SET_FILTER 
+} from './action-types'
+import { filterGenres } from '../utils/filter-genres'
 
 
 const initialState = {
@@ -6,6 +13,7 @@ const initialState = {
     isShowMovieDetail: false,
     currentMovieId: 0,
     searchResults: [],
+    filter: 'all',
 }
 
 export const rootReducer = (state = initialState, action ) => {
@@ -18,12 +26,18 @@ export const rootReducer = (state = initialState, action ) => {
             return { ...state, isShowMovieDetail: !state.isShowMovieDetail }
 
         case SET_CURRENT_MOVIE:
-            console.log('Payload:', action.payload)
             return { ...state, isShowMovieDetail: true, currentMovieId: action.payload }
 
         case SET_SEARCH_RESULTS:
-            console.log('SET_SEARCH_RESULTS')
             return { ...state, searchResults: action.payload }
+
+        case SET_FILTER:
+            console.log('SET_FILTER:', action.payload)
+            return { 
+                ...state, 
+                filter: action.payload, 
+                searchResults: action.payload == 'all' ? [] : filterGenres(state.genres, action.payload) 
+            }
         
         default:
             return state
